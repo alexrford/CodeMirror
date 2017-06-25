@@ -148,7 +148,6 @@
       if (lines.length == 1) {
         var found = string.indexOf(lines[0])
         if (found == -1) continue search
-        var start = adjustPos(orig, string, found) + ch
         return {from: Pos(line, adjustPos(orig, string, found) + ch),
                 to: Pos(line, adjustPos(orig, string, found + lines[0].length) + ch)}
       } else {
