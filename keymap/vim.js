@@ -3282,18 +3282,17 @@
           return { from: 0, to: 0, line: lineNum };
         }
         var stop = (dir > 0) ? line.length : -1;
-        var wordStart = stop, wordEnd = stop;
         // Find bounds of next word.
         while (pos != stop) {
           var foundWord = false;
           for (var i = 0; i < charTests.length && !foundWord; ++i) {
             if (charTests[i](line.charAt(pos))) {
-              wordStart = pos;
+              var wordStart = pos;
               // Advance to end of word.
               while (pos != stop && charTests[i](line.charAt(pos))) {
                 pos += dir;
               }
-              wordEnd = pos;
+              var wordEnd = pos;
               foundWord = wordStart != wordEnd;
               if (wordStart == cur.ch && lineNum == cur.line &&
                   wordEnd == wordStart + dir) {
